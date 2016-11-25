@@ -15,21 +15,22 @@ public class TypeOneBox extends SuperBox {
     }
     
     public double costCalculator() {
-        double initCost = 0;
+        double gradeCost = 0;
+        double topsCost = 0;
         
         switch (grade) {
-            case 1: initCost = size * 0.5;
+            case 1: gradeCost = size * 0.5;
                     break;
-            case 2: initCost = size * 0.6;
+            case 2: gradeCost = size * 0.6;
                     break;
-            case 3: initCost = size * 0.72;
+            case 3: gradeCost = size * 0.72;
                     break;
         }
         
         if(sealableTops)
-            initCost *= 1.08;
+            topsCost = gradeCost * 0.08;
         
-        cost = initCost;
+        cost = topsCost + gradeCost;
         return cost;            
     }
 }
