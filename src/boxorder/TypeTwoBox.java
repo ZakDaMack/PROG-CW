@@ -2,6 +2,7 @@ package boxorder;
 
 public class TypeTwoBox extends SuperBox {
     
+    // Constructors
     public TypeTwoBox(){
     }
     
@@ -9,17 +10,18 @@ public class TypeTwoBox extends SuperBox {
         super(w, h, l, grd, tops);
     }
     
-    
+    // Methods
     public double sizeCalculator() {
         return super.sizeCalculator();
     }
     
+    // Calculate total cost of boxes
     public double costCalculator() {
         double gradeCost = 0;
         double topsCost = 0;
         double colourCost = 0;
         
-        switch (grade) {
+        switch (grade) { // Calculate initial cost of box
             case 2: gradeCost = size * 0.6;
                     break;
             case 3: gradeCost = size * 0.72;
@@ -28,12 +30,12 @@ public class TypeTwoBox extends SuperBox {
                     break;
         }
       
-        if(sealableTops)
+        if(sealableTops) // Calculate added cost of sealable tops if chosen
             topsCost = gradeCost * 0.08;
         
-        colourCost = gradeCost * 0.13;
+        colourCost = gradeCost * 0.13; // Calcualte added cost of adding colours to the box
         
-        cost = gradeCost + topsCost + colourCost;
+        cost = (gradeCost + topsCost + colourCost) * quant; // Calculate total cost
         return cost;            
     }
 }
