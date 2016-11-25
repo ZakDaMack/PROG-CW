@@ -6,8 +6,8 @@ public class TypeTwoBox extends SuperBox {
     public TypeTwoBox(){
     }
     
-    public TypeTwoBox(double w, double h, double l, int grd, boolean tops){
-        super(w, h, l, grd, tops);
+    public TypeTwoBox(double w, double h, double l, int grd, boolean tops, int quant){
+        super(w, h, l, grd, tops, quant);
     }
     
     // Methods
@@ -35,7 +35,7 @@ public class TypeTwoBox extends SuperBox {
         
         colourCost = gradeCost * 0.13; // Calcualte added cost of adding colours to the box
         
-        cost = (gradeCost + topsCost + colourCost) * quant; // Calculate total cost
+        cost = (gradeCost + topsCost + colourCost) * quantity; // Calculate total cost
         return cost;            
     }
 }
