@@ -2,6 +2,7 @@ package boxorder;
 
 public class TypeFiveBox extends SuperBox {
     
+    // Constructors
     public TypeFiveBox(){
     }
     
@@ -11,10 +12,12 @@ public class TypeFiveBox extends SuperBox {
     }
     
     
+    // Methods
     public double sizeCalculator() {
         return super.sizeCalculator();
     }
     
+    // Calculates total cost of boxes
     public double costCalculator() {
         double gradeCost = 0;
         double topsCost = 0;
@@ -22,7 +25,7 @@ public class TypeFiveBox extends SuperBox {
         double cornCost = 0;
         double colourCost = 0;
         
-        switch (grade) {
+        switch (grade) { // Calculates initial cost of card by surface area and grade
             case 3: gradeCost = size * 0.72;
                     break;
             case 4: gradeCost = size * 0.9;
@@ -31,18 +34,18 @@ public class TypeFiveBox extends SuperBox {
                     break;
         }
       
-        if(sealableTops)
+        if(sealableTops) // Adds cost if sealable tops are selected
             topsCost = gradeCost * 0.08;
         
-        if(reinforcedBottom)
+        if(reinforcedBottom) // Adds cost if reinforced bottom is selected
             bottCost = gradeCost * 0.14;
         
-        if(reinforcedCorners)
+        if(reinforcedCorners) // Adds cost if reinforces corners are selected
             cornCost = gradeCost * 0.1;
         
-        colourCost = gradeCost * 0.16;
+        colourCost = gradeCost * 0.16; // Adds cost of having colours on the box
         
-        cost = gradeCost + topsCost + bottCost + cornCost + colourCost;
+        cost = (gradeCost + topsCost + bottCost + cornCost + colourCost) * quantity; // Calculates final cost
         return cost;            
     }
 }

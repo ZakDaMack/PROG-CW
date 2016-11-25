@@ -1,23 +1,21 @@
 package boxorder;
 
 public abstract class SuperBox {
-    double width;
-    double height;
-    double length;
+    double width, height, length;
     int grade;
     int numOfColours;
-    boolean reinforcedCorners;
-    boolean reinforcedBottom;
+    boolean reinforcedCorners, reinforcedBottom;
     boolean sealableTops;
     double size;
     double cost;
+    int quantity;
     
-    
+    // Constructors
     public SuperBox(){
     }
     
     public SuperBox(double w, double h, double l, int grd, boolean corn,
-            boolean bott, boolean tops ){
+            boolean bott, boolean tops, int quant){
         width = w;
         height = h;
         length = l;
@@ -25,26 +23,30 @@ public abstract class SuperBox {
         reinforcedCorners = corn;
         reinforcedBottom = bott;
         sealableTops = tops;
+        quantity = quant;
     }
     
-    public SuperBox(double w, double h, double l, int grd, boolean tops ){
+    public SuperBox(double w, double h, double l, int grd, boolean tops, int quant){
         width = w;
         height = h;
         length = l;
         grade = grd;
         sealableTops = tops;
+        quantity = quant;
     }
     
-    public SuperBox(double w, double h, double l, int grd, boolean bott, boolean tops ){
+    public SuperBox(double w, double h, double l, int grd, boolean bott, boolean tops, int quant){
         width = w;
         height = h;
         length = l;
         grade = grd;
         reinforcedBottom = bott;
         sealableTops = tops;
+        quantity = quant;
     }
    
-    
+    // Methods
+    // Calculates total surface area of the box
     public double sizeCalculator() {
         double base = length * width;
         double side1 = length * height;
@@ -53,6 +55,7 @@ public abstract class SuperBox {
         return size;
     }
     
+    // Calculates total cost of each box
     public abstract double costCalculator();
     
 }
