@@ -1,0 +1,61 @@
+public void validite() {
+        
+        if(colours == 2) { // typ 3-5
+            if (reinforcedBottom == true){ // typ 4-5
+                
+                if(reinforcedCorners == true){ // typ 5
+                    if(grade >= 3 && grade <= 5){
+                        isValid = true;
+                    }
+                    else{
+                        isValid = false;
+                    }
+                }
+                else{ // typ 4
+                    if(grade >= 2 && grade <= 5){
+                        isValid = true;
+                    }
+                    else{
+                        isValid = false;
+                    }   
+                }
+            }
+            else{ // typ 3
+                if(grade >= 2 && grade <= 5){
+                    isValid = true;
+                }
+                else{
+                    isValid = false;
+                }
+            }
+            
+        }
+        else if (colours == 1) { // typ 2
+            if (reinforcedBottom == false && reinforcedCorners == false){
+                if (grade >= 2 && grade <= 4){
+                    isValid = true;
+                }
+                else{
+                    isValid = false;
+                }
+            }
+            else{
+                isValid = false;
+            }
+        }
+        else{ // typ 1
+            if (reinforcedBottom == false && reinforcedCorners == false){
+                if (grade >= 1 && grade <= 3){
+                    isValid = true;
+                }
+                else{
+                    isValid = false;
+                }
+            }
+            else{
+                isValid = false;
+            }
+        }
+        
+        
+    } // end of method
