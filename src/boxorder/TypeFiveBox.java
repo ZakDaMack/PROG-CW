@@ -7,8 +7,8 @@ public class TypeFiveBox extends SuperBox {
     }
     
     public TypeFiveBox(double w, double h, double l, int grd, boolean corn,
-            boolean bott, boolean tops){
-        super(w, h, l, grd, corn, bott, tops);
+            boolean bott, boolean tops, int quant){
+        super(w, h, l, grd, corn, bott, tops, quant);
     }
     
     
