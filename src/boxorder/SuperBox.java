@@ -55,6 +55,10 @@ public abstract class SuperBox {
         return size;
     }
     
+    public double getCost(){
+        return cost;
+    }
+    
     // Calculates total cost of each box
     public abstract double costCalculator();
     
