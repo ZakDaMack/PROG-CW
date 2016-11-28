@@ -33,7 +33,7 @@ public class TypeOneBox extends SuperBox {
         if(sealableTops) // Adds the cost of sealable tops if the option is taken
             topsCost = gradeCost * 0.08;
         
-        cost = (topsCost + gradeCost) * quant; // Calculates total cost
+        cost = (topsCost + gradeCost) * quantity; // Calculates total cost
         return cost;            
     }
 }
