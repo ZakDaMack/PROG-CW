@@ -8,6 +8,8 @@ public class TypeThreeBox extends SuperBox {
     
     public TypeThreeBox(double w, double h, double l, int grd, boolean tops, int quant){
         super(w, h, l, grd, tops, quant);
+        sizeCalculator();
+        costCalculator();
     }
     
     

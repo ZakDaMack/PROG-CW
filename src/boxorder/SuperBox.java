@@ -1,5 +1,9 @@
 package boxorder;
 
+/**
+ * 
+ * @author up788458
+ */
 public abstract class SuperBox {
     double width, height, length;
     int grade;
@@ -24,6 +28,8 @@ public abstract class SuperBox {
         reinforcedBottom = bott;
         sealableTops = tops;
         quantity = quant;
+        sizeCalculator();
+        costCalculator();
     }
     
     public SuperBox(double w, double h, double l, int grd, boolean tops, int quant){
@@ -33,6 +39,8 @@ public abstract class SuperBox {
         grade = grd;
         sealableTops = tops;
         quantity = quant;
+        sizeCalculator();
+        costCalculator();
     }
     
     public SuperBox(double w, double h, double l, int grd, boolean bott, boolean tops, int quant){
@@ -43,6 +51,8 @@ public abstract class SuperBox {
         reinforcedBottom = bott;
         sealableTops = tops;
         quantity = quant;
+        sizeCalculator();
+        costCalculator();
     }
    
     // Methods

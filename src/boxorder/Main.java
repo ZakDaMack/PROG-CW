@@ -1,15 +1,14 @@
 package boxorder;
 
-import java.util.*;
-
+/**
+ * 
+ * @author up788458
+ */
 public class Main {
-    private double totalCost;
-    private double orderCost;
     
     public static void main(String[] args){
-        ArrayList<SuperBox> boxOrder = new ArrayList();
-        SuperBox ob;
         
-       
+        GUI form = new GUI();
+        form.setVisible(true);    
     }
 }

@@ -9,6 +9,8 @@ public class TypeFourBox extends SuperBox {
     public TypeFourBox(double w, double h, double l, int grd, boolean bott,
             boolean tops, int quant){
         super(w, h, l, grd, bott, tops, quant);
+        sizeCalculator();
+        costCalculator();
     }
     
     
