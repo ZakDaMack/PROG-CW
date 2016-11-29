@@ -68,7 +68,43 @@ public abstract class SuperBox {
     public double getCost(){
         return cost;
     }
+            
+    public int getQuantity(){
+        return quantity;
+    }
     
+    public int getGrade(){
+        return grade;
+    }
+    
+    public double getHeight(){
+        return height;
+    }
+    
+    public double getWidth(){
+        return width;
+    }
+    
+    public double getLength(){
+        return length;
+    }
+    
+    public double getSize(){
+        return size;
+    }
+    
+    public boolean getCorners(){
+        return reinforcedCorners;
+    }
+    
+    public boolean getBottom(){
+        return reinforcedBottom;
+    }
+    
+    public boolean getTops(){
+        return sealableTops;
+    }
+
     // Calculates total cost of each box
     public abstract double costCalculator();
     
