@@ -104,6 +104,10 @@ public abstract class SuperBox {
     public boolean getTops(){
         return sealableTops;
     }
+    
+    public int getColours(){
+        return numOfColours;
+    }
 
     // Calculates total cost of each box
     public abstract double costCalculator();
