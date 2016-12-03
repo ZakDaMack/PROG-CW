@@ -1,10 +1,11 @@
 package boxorder;
 
 /**
- * 
+ *
  * @author up788458
  */
 public abstract class SuperBox {
+
     double width, height, length;
     int grade;
     int numOfColours;
@@ -13,13 +14,13 @@ public abstract class SuperBox {
     double size;
     double cost;
     int quantity;
-    
+
     // Constructors
-    public SuperBox(){
+    public SuperBox() {
     }
-    
+
     public SuperBox(double w, double h, double l, int grd, boolean corn,
-            boolean bott, boolean tops, int quant){
+            boolean bott, boolean tops, int quant) {
         width = w;
         height = h;
         length = l;
@@ -31,8 +32,8 @@ public abstract class SuperBox {
         sizeCalculator();
         costCalculator();
     }
-    
-    public SuperBox(double w, double h, double l, int grd, boolean tops, int quant){
+
+    public SuperBox(double w, double h, double l, int grd, boolean tops, int quant) {
         width = w;
         height = h;
         length = l;
@@ -42,8 +43,8 @@ public abstract class SuperBox {
         sizeCalculator();
         costCalculator();
     }
-    
-    public SuperBox(double w, double h, double l, int grd, boolean bott, boolean tops, int quant){
+
+    public SuperBox(double w, double h, double l, int grd, boolean bott, boolean tops, int quant) {
         width = w;
         height = h;
         length = l;
@@ -54,7 +55,7 @@ public abstract class SuperBox {
         sizeCalculator();
         costCalculator();
     }
-   
+
     // Methods
     // Calculates total surface area of the box
     public double sizeCalculator() {
@@ -64,52 +65,52 @@ public abstract class SuperBox {
         size = base + (side1 * 2) + (side2 * 2);
         return size;
     }
-    
-    public double getCost(){
+
+    public double getCost() {
         return cost;
     }
-            
-    public int getQuantity(){
+
+    public int getQuantity() {
         return quantity;
     }
-    
-    public int getGrade(){
+
+    public int getGrade() {
         return grade;
     }
-    
-    public double getHeight(){
+
+    public double getHeight() {
         return height;
     }
-    
-    public double getWidth(){
+
+    public double getWidth() {
         return width;
     }
-    
-    public double getLength(){
+
+    public double getLength() {
         return length;
     }
-    
-    public double getSize(){
+
+    public double getSize() {
         return size;
     }
-    
-    public boolean getCorners(){
+
+    public boolean getCorners() {
         return reinforcedCorners;
     }
-    
-    public boolean getBottom(){
+
+    public boolean getBottom() {
         return reinforcedBottom;
     }
-    
-    public boolean getTops(){
+
+    public boolean getTops() {
         return sealableTops;
     }
-    
-    public int getColours(){
+
+    public int getColours() {
         return numOfColours;
     }
 
     // Calculates total cost of each box
     public abstract double costCalculator();
-    
+
 }

@@ -3,16 +3,17 @@ package boxorder;
 import java.util.*;
 
 public class GUI extends javax.swing.JFrame {
+
     private boolean reinforcedBottom, reinforcedCorners, sealableTop;
     private int noOfBoxes, colours, grade;
     private boolean isValid, validated;
     private double totalCost = 0, orderCost;
     private double width, length, height;
-    
+
     private static int listI = 0;
     ArrayList<SuperBox> boxList = new ArrayList();
     SuperBox obj;
-    
+
     /**
      * Creates new form GUI
      */
@@ -57,10 +58,14 @@ public class GUI extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Box Order System");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,35 +95,47 @@ public class GUI extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 513, 107));
+
         jLabel1.setText("Grade Of Card:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 20));
 
         jLabel2.setText("Number Of Colours:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 20));
 
         jLabel4.setText("Reinforced Bottom:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 21));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         jLabel5.setText("Reinforced Corners:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, 21));
 
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
         jLabel6.setText("Sealable Tops:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 20));
 
         jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jLabel7.setText("Number Of Boxes:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 100, -1));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 124, -1));
 
         jButton1.setText("Add To Basket");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +143,7 @@ public class GUI extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         jButton2.setText("Checkout");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -133,14 +151,23 @@ public class GUI extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Final Quote:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, -1, 30));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("£00.00");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 630, -1, 30));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Subtotal:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("£00.00");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -148,18 +175,24 @@ public class GUI extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("  ");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 472, 32));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2" }));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
-        jLabel3.setText("Width:");
+        jLabel3.setText("Width (m):");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 60, 20));
 
-        jLabel13.setText("Length:");
+        jLabel13.setText("Length (m):");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 60, 20));
 
-        jLabel14.setText("Height:");
+        jLabel14.setText("Height (m):");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, 20));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,18 +204,21 @@ public class GUI extends javax.swing.JFrame {
                 jTextField1PropertyChange(evt);
             }
         });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, -1));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 70, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 70, -1));
 
         jButton3.setText("Clear Order");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -190,161 +226,43 @@ public class GUI extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
 
-        jLabel15.setText("jLabel15");
-
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel16.setText("Basket");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 143, 43));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel16)
-                                .addGap(167, 167, 167))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(21, 21, 21)
-                                                .addComponent(jLabel1)
-                                                .addGap(2, 2, 2))
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(22, 22, 22)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTextField4)
-                                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                                    .addComponent(jTextField1)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jCheckBox2)
-                                                    .addComponent(jCheckBox3)
-                                                    .addComponent(jCheckBox1))))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11))))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)))
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(36, 36, 36))
-        );
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Item", "Length", "Width", "Height", "Grade", "Colours", "Reinforced Bottom", "Reinforced Corners", "Sealable Tops", "Quantity", "Cost"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 881, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setText("Available Box Configurations");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,59 +281,87 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jLabel12.setText("  ");
-        
-        reinforcedBottom = jCheckBox1.isSelected() ;
+
+        reinforcedBottom = jCheckBox1.isSelected();
         reinforcedCorners = jCheckBox2.isSelected();
         sealableTop = jCheckBox3.isSelected();
-        colours = Integer.parseInt((String)jComboBox2.getSelectedItem());
-        grade = Integer.parseInt((String)jComboBox1.getSelectedItem());
-        
+        colours = Integer.parseInt((String) jComboBox2.getSelectedItem());
+        grade = Integer.parseInt((String) jComboBox1.getSelectedItem());
+
         validated = true;
-        
-            try{
-                width = Double.parseDouble((String)jTextField1.getText()); 
-            }catch(NumberFormatException e){
-                validated = false;
-                jLabel12.setText("Error!: The width must be a number");
-            }
-            try{
-                height = Double.parseDouble((String)jTextField4.getText()); 
-            }catch(NumberFormatException e){
-                validated = false;
-                jLabel12.setText("Error!: The height must be a number");
-            }
-            try{
-                length = Double.parseDouble((String)jTextField2.getText());
-            }catch(NumberFormatException e){
-                validated = false;
-                jLabel12.setText("Error!: The length must be a number");
-            }
-            try{
-                noOfBoxes = Integer.parseInt(jTextField3.getText()) ;
-            }catch(NumberFormatException e){
-                validated = false;
-                jLabel12.setText("Error!: The quantity must be a number");
-            }
-        
-            if(validated){
-                System.out.println("passed validators");
-                
-                validator();
 
-                if(isValid){
-                    jLabel11.setText("£" + String.format("%.2f", boxList.get(listI).getCost()));
-                    listI++;
-                }
-                else{
-                    jLabel12.setText("Error!: The current configuration is not accepted");
-                }
-            }
-            
-        
-        
-        
+        try {
+            width = Double.parseDouble((String) jTextField1.getText());
+        } catch (NumberFormatException e) {
+            validated = false;
+            jLabel12.setText("Error!: The width must be a number");
+        }
+        try {
+            height = Double.parseDouble((String) jTextField4.getText());
+        } catch (NumberFormatException e) {
+            validated = false;
+            jLabel12.setText("Error!: The height must be a number");
+        }
+        try {
+            length = Double.parseDouble((String) jTextField2.getText());
+        } catch (NumberFormatException e) {
+            validated = false;
+            jLabel12.setText("Error!: The length must be a number");
+        }
+        try {
+            noOfBoxes = Integer.parseInt(jTextField3.getText());
+        } catch (NumberFormatException e) {
+            validated = false;
+            jLabel12.setText("Error!: The quantity must be a whole number");
+        }
 
-        
+        if (validated) {
+
+            validator();
+
+            if (isValid) {
+                jLabel11.setText("£" + String.format("%.2f", boxList.get(listI).getCost()));
+                listI++;
+            } else {
+                jLabel12.setText("Error!: The current configuration is not accepted");
+            }
+        }
+
+        javax.swing.table.DefaultTableModel model
+                = (javax.swing.table.DefaultTableModel) jTable2.getModel();
+        int rows = model.getRowCount();
+        for (int i = rows - 1; i >= 0; i--) {
+            model.removeRow(i);
+        }
+
+        int itemNumber = 0;
+        for (SuperBox box : boxList) {
+            String bott = "No";
+            String corn = "No";
+            String tops = "No";
+            if (box.getBottom()) {
+                bott = "Yes";
+            }
+            if (box.getCorners()) {
+                corn = "Yes";
+            }
+            if (box.getTops()) {
+                tops = "Yes";
+            }
+
+            itemNumber++;
+            model.addRow(new Object[]{itemNumber, box.getLength(),
+                box.getWidth(), box.getHeight(), box.getGrade(),
+                box.getColours(), bott, corn, tops, box.getQuantity(),
+                ("£" + String.format("%.2f", box.getCost()))});
+        }
+
+        totalCost = 0;
+        for (SuperBox box : boxList) {
+            totalCost += box.getCost();
+        }
+        jLabel11.setText("£00.00");
+        jLabel9.setText("£" + String.format("%.2f", totalCost));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
@@ -436,19 +382,20 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        totalCost = 0;
-        for (SuperBox box : boxList) {
-            totalCost += box.getCost();
-        }
-        jLabel11.setText("£00.00");
-        jLabel9.setText("£" + String.format("%.2f", totalCost));
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int i = 0;
-        while(i < boxList.size()) {
+        while (i < boxList.size()) {
             boxList.remove(i);
+        }
+
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable2.getModel();
+        int rows = model.getRowCount();
+        for (int j = rows - 1; j >= 0; j--) {
+            model.removeRow(j);
         }
         listI = 0;
         jLabel11.setText("£00.00");
@@ -494,75 +441,86 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void validator() {
-        
-        if(colours == 2) { // typ 3-5
-            if (reinforcedBottom == true){ // typ 4-5    
-                if(reinforcedCorners == true){ // typ 5
-                    if(grade >= 3 && grade <= 5){
-                        isValid = true;
-                        boxList.add(new TypeFiveBox(width, height, length, grade, reinforcedCorners, reinforcedBottom, sealableTop, noOfBoxes));
+
+        boolean sizeCheck = true;
+        if (width < 0.05 || width > 5) {
+            jLabel12.setText("Error!: Specified width not available");
+            sizeCheck = false;
+        }
+        if (length < 0.05 || length > 5) {
+            jLabel12.setText("Error!: Specified length not available");
+            sizeCheck = false;
+        }
+        if (height < 0.05 || height > 5) {
+            jLabel12.setText("Error!: Specified height not available");
+            sizeCheck = false;
+        }
+        if (noOfBoxes<=0)  {
+            jLabel12.setText("Error!: Quantity must be greater than 0");
+            sizeCheck = false;
+        }
+
+        if (sizeCheck) {
+            if (colours == 2) { // typ 3-5
+                if (reinforcedBottom == true) { // typ 4-5    
+                    if (reinforcedCorners == true) { // typ 5
+                        if (grade >= 3 && grade <= 5) {
+                            isValid = true;
+                            boxList.add(new TypeFiveBox(width, height, length, grade, reinforcedCorners, reinforcedBottom, sealableTop, noOfBoxes));
+                        } else {
+                            isValid = false;
+                        }
+                    } else // typ 4
+                    {
+                        if (grade >= 2 && grade <= 5) {
+                            isValid = true;
+                            boxList.add(new TypeFourBox(width, height, length, grade, reinforcedBottom, sealableTop, noOfBoxes));
+                        } else {
+                            isValid = false;
+                        }
                     }
-                    else{
+                } else // typ 3
+                {
+                    if (grade >= 2 && grade <= 5) {
+                        isValid = true;
+                        boxList.add(new TypeThreeBox(width, height, length, grade, sealableTop, noOfBoxes));
+                    } else {
                         isValid = false;
                     }
                 }
-                else{ // typ 4
-                    if(grade >= 2 && grade <= 5){
+
+            } else if (colours == 1) { // typ 2
+                if (reinforcedBottom == false && reinforcedCorners == false) {
+                    if (grade >= 2 && grade <= 4) {
                         isValid = true;
-                        boxList.add(new TypeFourBox(width, height, length, grade, reinforcedBottom, sealableTop, noOfBoxes));
-                    }
-                    else{
+                        boxList.add(new TypeTwoBox(width, height, length, grade, sealableTop, noOfBoxes));
+                    } else {
                         isValid = false;
-                    }   
-                }
-            }
-            else{ // typ 3
-                if(grade >= 2 && grade <= 5){
-                    isValid = true;
-                    boxList.add(new TypeThreeBox(width, height, length, grade, sealableTop, noOfBoxes));
-                }
-                else{
+                    }
+                } else {
                     isValid = false;
                 }
-            }
-            
-        }
-        else if (colours == 1) { // typ 2
-            if (reinforcedBottom == false && reinforcedCorners == false){
-                if (grade >= 2 && grade <= 4){
-                    isValid = true;
-                    boxList.add(new TypeTwoBox(width, height, length, grade, sealableTop, noOfBoxes));
-                }
-                else{
+
+            } else // typ 1
+            {
+                if (reinforcedBottom == false && reinforcedCorners == false) {
+                    if (grade >= 1 && grade <= 3) {
+                        isValid = true;
+                        boxList.add(new TypeOneBox(width, height, length, grade, sealableTop, noOfBoxes));
+                    } else {
+                        isValid = false;
+                    }
+                } else {
                     isValid = false;
                 }
-            }
-            else{
-                isValid = false;
-            }
-            
-        }
-        else{ // typ 1
-            if (reinforcedBottom == false && reinforcedCorners == false){
-                if (grade >= 1 && grade <= 3){
-                    isValid = true;
-                    boxList.add(new TypeOneBox(width, height, length, grade, sealableTop, noOfBoxes));
-                }
-                else{
-                    isValid = false;
-                }
-            }
-            else{
-                isValid = false;
             }
         }
     } // end of method
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -588,7 +546,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
