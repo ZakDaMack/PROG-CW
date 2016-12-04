@@ -322,9 +322,7 @@ public class GUI extends javax.swing.JFrame {
             if (isValid) {
                 jLabel11.setText("£" + String.format("%.2f", boxList.get(listI).getCost()));
                 listI++;
-            } else {
-                jLabel12.setText("Error!: The current configuration is not accepted");
-            }
+            } 
         }
 
         javax.swing.table.DefaultTableModel model
