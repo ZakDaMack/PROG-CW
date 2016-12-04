@@ -471,6 +471,7 @@ public class GUI extends javax.swing.JFrame {
                             boxList.add(new TypeFiveBox(width, height, length, grade, reinforcedCorners, reinforcedBottom, sealableTop, noOfBoxes));
                         } else {
                             isValid = false;
+                            jLabel12.setText("Error!: Grade must be between 3 and 5");
                         }
                     } else // typ 4
                     {
@@ -479,6 +480,7 @@ public class GUI extends javax.swing.JFrame {
                             boxList.add(new TypeFourBox(width, height, length, grade, reinforcedBottom, sealableTop, noOfBoxes));
                         } else {
                             isValid = false;
+                            jLabel12.setText("Error!: Grade must be between 2 and 5");
                         }
                     }
                 } else // typ 3
@@ -488,6 +490,7 @@ public class GUI extends javax.swing.JFrame {
                         boxList.add(new TypeThreeBox(width, height, length, grade, sealableTop, noOfBoxes));
                     } else {
                         isValid = false;
+                        jLabel12.setText("Error!: Grade must be between 2 and 5");
                     }
                 }
 
@@ -498,9 +501,11 @@ public class GUI extends javax.swing.JFrame {
                         boxList.add(new TypeTwoBox(width, height, length, grade, sealableTop, noOfBoxes));
                     } else {
                         isValid = false;
+                        jLabel12.setText("Error!: Grade must be between 2 and 4");
                     }
                 } else {
                     isValid = false;
+                    jLabel12.setText("Error!: Reinforced Bottoms and Reinforced Corners must be deselected");
                 }
 
             } else // typ 1
@@ -511,9 +516,11 @@ public class GUI extends javax.swing.JFrame {
                         boxList.add(new TypeOneBox(width, height, length, grade, sealableTop, noOfBoxes));
                     } else {
                         isValid = false;
+                        jLabel12.setText("Error!: Grade must be between 1 and 3");
                     }
                 } else {
                     isValid = false;
+                    jLabel12.setText("Error!: Reinforced Bottoms and Reinforced Corners must be deselected");
                 }
             }
         }
