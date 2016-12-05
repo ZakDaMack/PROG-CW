@@ -2,6 +2,10 @@ package boxorder;
 
 import java.util.*;
 
+/**
+ * 
+ * @author up788458, up719920, up784374
+ */
 public class GUI extends javax.swing.JFrame {
 
     private boolean reinforcedBottom, reinforcedCorners, sealableTop;
@@ -439,6 +443,13 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * 
+     * This method is the "add to basket" button which grabs the box variables, 
+     * checks to make it's valid and then constructs the correct box type.
+     * The box is then added to the basket table and the cost is added on to the
+     * subtotal
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jLabel12.setText("  ");
 
@@ -449,8 +460,11 @@ public class GUI extends javax.swing.JFrame {
         grade = Integer.parseInt((String) jComboBox1.getSelectedItem());
 
         validated = true;
-
-        try {
+        
+        /**
+         * Checks to see if the contents entered into the box are only numbers
+         */
+        try { 
             width = Double.parseDouble((String) jTextField1.getText());
         } catch (NumberFormatException e) {
             validated = false;
@@ -492,7 +506,7 @@ public class GUI extends javax.swing.JFrame {
             model.removeRow(i);
         }
 
-        int itemNumber = 0;
+        int itemNumber = 0; // Adds the booleans to the table in a yes/no format
         for (SuperBox box : boxList) {
             String bott = "No";
             String corn = "No";
@@ -508,7 +522,7 @@ public class GUI extends javax.swing.JFrame {
             }
 
             itemNumber++;
-            model.addRow(new Object[]{itemNumber, box.getLength(),
+            model.addRow(new Object[]{itemNumber, box.getLength(), // creates a new row
                 box.getWidth(), box.getHeight(), box.getGrade(),
                 box.getColours(), bott, corn, tops, box.getQuantity(),
                 ("£" + String.format("%.2f", box.getCost()))});
@@ -538,6 +552,10 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    /**
+     * 
+     * This method collects the final total when checkout is selected 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         totalCost = 0;
@@ -548,6 +566,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel9.setText("£" + String.format("%.2f", totalCost));
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * 
+     * This method clears the table as well as the array list and resets
+     * the subtotal counter
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int i = 0;
@@ -605,6 +628,10 @@ public class GUI extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * This method validates the inputs given to make sure that the program
+     * uses the correct constructor
+     */
     public void validator() {
 
         boolean sizeCheck = true;

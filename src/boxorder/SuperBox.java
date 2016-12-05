@@ -2,18 +2,18 @@ package boxorder;
 
 /**
  *
- * @author up788458
+ * @author up788458, up719920, up784374
  */
 public abstract class SuperBox {
 
-    double width, height, length;
-    int grade;
-    int numOfColours;
-    boolean reinforcedCorners, reinforcedBottom;
-    boolean sealableTops;
-    double size;
-    double cost;
-    int quantity;
+    protected double width, height, length;
+    protected int grade;
+    protected int numOfColours;
+    protected boolean reinforcedCorners, reinforcedBottom;
+    protected boolean sealableTops;
+    protected double size;
+    protected double cost;
+    protected int quantity;
 
     // Constructors
     public SuperBox() {
