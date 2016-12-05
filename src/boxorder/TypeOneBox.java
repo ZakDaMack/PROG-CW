@@ -1,5 +1,9 @@
 package boxorder;
 
+/**
+ * 
+ * @author up788458, up719920, up784374
+ */
 public class TypeOneBox extends SuperBox {
 
     // Constructors
